@@ -1,7 +1,7 @@
 #ifndef TYPINGSLAM_CAMERA_H
 #define TYPINGSLAM_CAMERA_H
 
-#include "typingslam/common_include.h"
+#include "common_include.h"
 
 namespace typingslam{
 	
@@ -9,13 +9,13 @@ namespace typingslam{
 	class Camera{
 
 	public:
-		typedef std::shared_ptr<Camera> CameraPtr;
+		typedef std::shared_ptr<Camera> Ptr;
 
 		float fx_, fy_, cx_, cy_, depth_scale_;
 
 		//constructor
 		Camera();
-		Camera(float fx_, float fy_, float cx_, float cy_, float depth_scale=0):
+		Camera(float fx, float fy, float cx, float cy, float depth_scale=0):
 			fx_(fx), fy_(fy), cx_(cx), cy_(cy), depth_scale_(depth_scale){}
 
 		// coordinate transform: world, camera, pixel
