@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-08-17 21:36:36
+ * @LastEditTime: 2021-08-17 22:13:27
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /typing_slam/include/common_include.h
+ */
 #ifndef TYPINGSLAM_COMMOM_INCLUDE_H
 #define TYPINGSLAM_COMMOM_INCLUDE_H
 
@@ -10,30 +18,23 @@ using Eigen::Vector2d;
 using Eigen::Vector3d;
 
 // for Sophus
-#include <sophus/se3.h>
+#include <sophus/se3.hpp>
+#include <sophus/so3.hpp>
 using Sophus::SE3;
 
-//for cv
+// for cv
 #include <opencv2/core/core.hpp>
 using cv::Mat;
 
-//std
-#include <vector>
-#include <list>
-#include <memory>
-#include <string>
+// std
 #include <iostream>
-#include <set>
-#include <unordered_map>
+#include <list>
 #include <map>
+#include <memory>
+#include <set>
+#include <string>
+#include <unordered_map>
+#include <vector>
 
 using namespace std;
 #endif
-
-
-
-
-
-
-
-
