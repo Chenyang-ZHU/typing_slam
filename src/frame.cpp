@@ -7,7 +7,7 @@ namespace typingslam
 
 	}
 
-	Frame::Frame( long id, double time_stamp, SE3 T_c_w, Camera::Ptr camera, Mat color, Mat depth)
+	Frame::Frame( long id, double time_stamp, Sophus::SE3<double> T_c_w, Camera::Ptr camera, Mat color, Mat depth)
 	: id_(id), time_stamp_(time_stamp), T_c_w_(T_c_w), camera_(camera), color_(color), depth_(depth)
 	{
 

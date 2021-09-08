@@ -25,7 +25,7 @@ class Frame {
 
  public:  // data members
   Frame();
-  Frame(long id, double time_stamp = 0, Sophus::SE3<double> T_c_w = SE3(),
+  Frame(long id, double time_stamp = 0, Sophus::SE3<double> T_c_w = Sophus::SE3<double>(),
         Camera::Ptr camera = nullptr, Mat color = Mat(), Mat depth = Mat());
   ~Frame();
 
