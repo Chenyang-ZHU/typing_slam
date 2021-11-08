@@ -4,6 +4,7 @@ add_library( typingslam SHARED
     map.cpp
     camera.cpp
     config.cpp
+    visual_odometry.cpp
 )
 
 target_link_libraries( typingslam

@@ -6,7 +6,7 @@
  * @Description: In User Settings Edit
  * @FilePath: /typing_slam/src/camera.cpp
  */
-#include "camera.h"
+#include "myslam/camera.h"
 
 namespace typingslam {
 

@@ -1,5 +1,5 @@
-#include "common_include.h"
-#include "mappoint.h"
+#include "myslam/common_include.h"
+#include "myslam/mappoint.h"
 
 namespace typingslam
 {

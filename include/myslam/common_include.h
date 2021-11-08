@@ -36,5 +36,7 @@ using cv::Mat;
 #include <unordered_map>
 #include <vector>
 
-using namespace std;
+// basic structure
+enum OdomStatus { INITIALIZING = 0, GOOD = 1, BAD = 2 };
+
 #endif
