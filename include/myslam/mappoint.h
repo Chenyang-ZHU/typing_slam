@@ -6,6 +6,7 @@
 namespace typingslam {
 
 class Frame;
+class Feature;
 class MapPoint {
  public:
   typedef std::shared_ptr<MapPoint> Ptr;
@@ -15,6 +16,8 @@ class MapPoint {
   Mat descriptor_;      // descriptor of matching
   int observed_times_;  // being observed by feature matching algo
   int correct_times_;   // being an inliner in pose estimation
+
+  std::vector<std::weak_ptr<Feature>> observations_;  // filter map points
 
   MapPoint();
   MapPoint(long id, Vector3d position, Vector3d norm);

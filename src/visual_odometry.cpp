@@ -23,17 +23,22 @@ bool VisualOdometry::Init() {
 }
 
 bool VisualOdometry::addFrame(Frame::Ptr frame) {
+  tracker_->AddFrame(frame);
   switch (state_) {
     case INITIALIZING: {
-      state_ = GOOD;
+      Init();
       break;
     }
     case GOOD: {
+      Run();
     }
     case BAD: {
+      tracker_->Relocalize();
     }
   }
   return true;
 }
+
+bool Init() {}
 
 }  // namespace typingslam

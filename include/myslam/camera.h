@@ -19,7 +19,8 @@ class Camera {
   typedef std::shared_ptr<Camera> Ptr;
 
   float fx_, fy_, cx_, cy_, depth_scale_;
-
+  cv::Point principal_point_;
+  cv::Mat K_;  // camera projection matrix
   // constructor
   Camera();
   Camera(float fx, float fy, float cx, float cy, float depth_scale = 0)
