@@ -6,6 +6,7 @@ add_library( typingslam SHARED
     config.cpp
     visual_odometry.cpp
     tracker.cc
+    dataset.cc
 )
 
 target_link_libraries( typingslam

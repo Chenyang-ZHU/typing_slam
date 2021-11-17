@@ -1,6 +1,8 @@
 #ifndef TYPINGSLAM_VISUALODOMETRY_H
 #define TYPINGSLAM_VISUALODOMETRY_H
 
+#include "config.h"
+#include "dataset.h"
 #include "map.h"
 #include "tracker.h"
 #include "visualizer.h"
@@ -20,7 +22,7 @@ class VisualOdometry {
   Tracker::Ptr tracker_;
   Visualizer::Ptr visualizer_;
   Map::Ptr map_;
-
+  Dataset::Ptr dataset_;
   OdomStatus state_;
   std::string config_file_path_;
 };

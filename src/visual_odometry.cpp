@@ -6,8 +6,6 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-#include "myslam/config.h"
-
 namespace typingslam {
 
 VisualOdometry::VisualOdometry(const std::string &config_file_path)
