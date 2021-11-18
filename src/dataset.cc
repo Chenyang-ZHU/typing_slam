@@ -4,6 +4,8 @@ namespace typingslam {
 Dataset::Dataset(const std::string dataset_path)
     : dataset_path_(dataset_path) {}
 
+Dataset::~Dataset() {}
+
 void Dataset::Init() { GetFileNames(dataset_path_, file_names_); }
 
 Frame::Ptr Dataset::NextFrame() {

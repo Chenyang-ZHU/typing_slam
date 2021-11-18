@@ -7,8 +7,10 @@ add_library( typingslam SHARED
     visual_odometry.cpp
     tracker.cc
     dataset.cc
-)
+algorithm.cc
+    )
 
 target_link_libraries( typingslam
     ${THIRD_PARTY_LIBS}
+    fmt::fmt
 )

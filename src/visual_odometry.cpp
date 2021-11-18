@@ -9,16 +9,27 @@
 namespace typingslam {
 
 VisualOdometry::VisualOdometry(const std::string &config_file_path)
-    : state_(INITIALIZING), map_(new Map) {}
+    : config_file_path_(config_file_path),
+      state_(INITIALIZING),
+      map_(new Map) {}
 
 VisualOdometry::~VisualOdometry() {}
 
 bool VisualOdometry::Init() {
   // read from config file
   if (Config::SetParameterFile(config_file_path_) == false) {
+    std::cerr << "config file path wrong!" << std::endl;
     return false;
   }
+  std::string dataset_path = Config::Get<std::string>("dataset");
+  std::cerr << dataset_path << std::endl;
+
+  dataset_ = std::make_shared<Dataset>(Config::Get<std::string>("dataset"));
+
+  return true;
 }
+
+void VisualOdometry::Run() {}
 
 bool VisualOdometry::addFrame(Frame::Ptr frame) {
   tracker_->AddFrame(frame);
@@ -36,7 +47,5 @@ bool VisualOdometry::addFrame(Frame::Ptr frame) {
   }
   return true;
 }
-
-bool Init() {}
 
 }  // namespace typingslam

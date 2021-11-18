@@ -64,4 +64,6 @@ void Tracker::EstimatePose() {
   cur_frame_->T_c_w_ = Sophus::SE3d(R, t);
 }
 
+void Tracker::Relocalize() {}
+
 }  // namespace typingslam

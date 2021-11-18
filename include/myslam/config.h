@@ -1,3 +1,4 @@
+#pragma once
 #ifndef TYPINGSLAM_CONFIG_H
 #define TYPINGSLAM_CONFIG_H
 
@@ -20,7 +21,7 @@ class Config {
 
   // access the parameter vvalues
   template <typename T>
-  static T get(const std::string& key) {
+  static T Get(const std::string& key) {
     return T(Config::config_->file_[key]);
   }
 };
