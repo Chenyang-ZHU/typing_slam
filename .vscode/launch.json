@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/bin/mono_slam",
-            "args": [ "${workspaceFolder}/config/config.yaml" ],
+            "args": [ "/home/chenyang/Documents/project/slam_open_source/slambook2/ch13/config/default.yaml" ],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],

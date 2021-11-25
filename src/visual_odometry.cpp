@@ -7,7 +7,6 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-#include "myslam/config.h"
 namespace typingslam {
 
 VisualOdometry::VisualOdometry(const std::string &config_file_path)
@@ -18,16 +17,9 @@ VisualOdometry::VisualOdometry(const std::string &config_file_path)
 VisualOdometry::~VisualOdometry() {}
 
 bool VisualOdometry::Init() {
-  // read from config file
-  if (Config::SetParameterFile(config_file_path_) == false) {
-    std::cerr << "config file path wrong!" << std::endl;
-    return false;
-  }
-  std::string dataset_path = Config::Get<std::string>("dataset");
-  std::cerr << dataset_path << std::endl;
-
-  dataset_ = Dataset::Ptr(new Dataset(Config::Get<std::string>("dataset")));
-
+  Config slam_config(config_file_path_);
+  configs_ = slam_config.configs_;
+  dataset_ = Dataset::Ptr(new Dataset(configs_.dataset_dir));
   return true;
 }
 

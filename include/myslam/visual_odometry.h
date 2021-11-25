@@ -1,6 +1,7 @@
 #ifndef TYPINGSLAM_VISUALODOMETRY_H
 #define TYPINGSLAM_VISUALODOMETRY_H
 
+#include "config.h"
 #include "dataset.h"
 #include "map.h"
 #include "tracker.h"
@@ -24,6 +25,8 @@ class VisualOdometry {
   Dataset::Ptr dataset_;
   OdomStatus state_;
   std::string config_file_path_;
+
+  SlamConfigs configs_;
 };
 }  // namespace typingslam
 #endif

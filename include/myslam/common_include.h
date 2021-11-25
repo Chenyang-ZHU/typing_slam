@@ -42,4 +42,8 @@ using cv::Mat;
 // basic structure
 enum OdomStatus { INITIALIZING = 0, GOOD = 1, BAD = 2 };
 
+struct SlamConfigs {
+  std::string dataset_dir = "";
+};
+
 #endif
