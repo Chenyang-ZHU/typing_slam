@@ -2,7 +2,7 @@
 #ifndef TYPINGSLAM_CONFIG_H
 #define TYPINGSLAM_CONFIG_H
 
-#include "common_include.h"
+#include "myslam/common_include.h"
 
 namespace typingslam {
 
@@ -12,14 +12,13 @@ class Config {
   cv::FileStorage file_;
 
   Config() {}  // private constructor makes a singleton
-
  public:
   ~Config();  // close the file when desconstructing
 
   // set a new config file
   static bool SetParameterFile(const std::string& filename);
 
-  // access the parameter vvalues
+  // access the parameter values
   template <typename T>
   static T Get(const std::string& key) {
     return T(Config::config_->file_[key]);

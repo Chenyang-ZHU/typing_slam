@@ -1,3 +1,4 @@
+
 #include "myslam/visual_odometry.h"
 
 #include <algorithm>
@@ -6,6 +7,7 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
+#include "myslam/config.h"
 namespace typingslam {
 
 VisualOdometry::VisualOdometry(const std::string &config_file_path)
@@ -24,7 +26,7 @@ bool VisualOdometry::Init() {
   std::string dataset_path = Config::Get<std::string>("dataset");
   std::cerr << dataset_path << std::endl;
 
-  dataset_ = std::make_shared<Dataset>(Config::Get<std::string>("dataset"));
+  dataset_ = Dataset::Ptr(new Dataset(Config::Get<std::string>("dataset")));
 
   return true;
 }

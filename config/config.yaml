@@ -1,3 +1,6 @@
 %YAML:1.0
 
 dataset: /home/chenyang/Documents/kitti/odometry/04/image_2
+
+fx: 650
+fy: 380
