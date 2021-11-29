@@ -15,6 +15,7 @@ class VisualOdometry {
 
   bool Init();
   void Run();
+  bool Step();
 
   bool addFrame(Frame::Ptr frame);
 
@@ -23,9 +24,7 @@ class VisualOdometry {
   Visualizer::Ptr visualizer_;
   Map::Ptr map_;
   Dataset::Ptr dataset_;
-  OdomStatus state_;
   std::string config_file_path_;
-
   SlamConfigs configs_;
 };
 }  // namespace typingslam

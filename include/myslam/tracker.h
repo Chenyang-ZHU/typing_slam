@@ -14,7 +14,7 @@ class Tracker {
   typedef std::shared_ptr<Tracker> Ptr;
   Tracker();
   ~Tracker();
-  void AddFrame(Frame::Ptr frame);
+  bool AddFrame(Frame::Ptr frame);
 
   // where to put initialized 3d map points, which need to be inserted into
   // map_;
@@ -22,6 +22,7 @@ class Tracker {
   void UpdateReference();
   void TrackLastFrame();
   void Relocalize();
+  inline TrackStatus GetTrackState() { return state_; }
 
  private:
   void ExtractFeatures();
@@ -41,6 +42,7 @@ class Tracker {
   int num_of_features_;
   int scale_factor_;
   int level_pyramid_;
+  TrackStatus state_;
 };
 }  // namespace typingslam
 #endif

@@ -25,6 +25,9 @@ class Dataset {
  private:
   int image_index_ = 0;
   const std::string dataset_path_;
+  std::string image_path_;
+  std::string calib_file_;
+
   std::vector<std::string> file_names_;
 };
 }  // namespace typingslam

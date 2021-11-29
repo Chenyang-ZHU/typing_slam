@@ -6,13 +6,18 @@ Dataset::Dataset(const std::string dataset_path)
 
 Dataset::~Dataset() {}
 
-void Dataset::Init() { GetFileNames(dataset_path_, file_names_); }
+void Dataset::Init() {
+  image_path_ = dataset_path_ + "/image_3";
+  GetFileNames(image_path_, file_names_);
+}
 
 Frame::Ptr Dataset::NextFrame() {
-  std::string file_name = dataset_path_ + "/" + file_names_[image_index_];
+  std::string file_name = image_path_ + "/" + file_names_[image_index_];
   auto frame = Frame::createFrame();
   // todo: why has to create? why auto? return Frame::Ptr is wrong
   frame->image_ = cv::imread(file_name);
+  cv::imshow("frame", frame->image_);
+  cv::waitKey(0);
   return frame;
 }
 
@@ -26,6 +31,7 @@ void Dataset::GetFileNames(const std::string &path,
       file_names.emplace_back(ptr->d_name);
   }
   closedir(pDir);
+  std::sort(file_names.begin(), file_names.end());
 }
 
 }  // namespace typingslam

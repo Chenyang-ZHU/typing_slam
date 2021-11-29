@@ -1,13 +1,33 @@
 #include "myslam/tracker.h"
 namespace typingslam {
 
-Tracker::Tracker() {
+Tracker::Tracker() : state_(INITIALIZING) {
   orb_ = cv::ORB::create(num_of_features_, scale_factor_, level_pyramid_);
 }
 
-void Tracker::AddFrame(Frame::Ptr frame) { cur_frame_ = frame; }
+bool Tracker::AddFrame(Frame::Ptr frame) {
+  cur_frame_ = frame;
+  cv::imshow("frame", frame->image_);
+  cv::waitKey(0);
+
+  switch (state_) {
+    case INITIALIZING: {
+      Initialize();
+      break;
+    }
+    case GOOD: {
+      TrackLastFrame();
+    }
+    case BAD: {
+      Relocalize();
+    }
+  }
+  return true;
+}
 
 void Tracker::UpdateReference() { ref_frame_ = cur_frame_; }
+
+void Tracker::TrackLastFrame() {}
 
 void Tracker::Initialize() {
   if (!ini_frame_)
