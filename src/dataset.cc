@@ -13,11 +13,11 @@ void Dataset::Init() {
 
 Frame::Ptr Dataset::NextFrame() {
   std::string file_name = image_path_ + "/" + file_names_[image_index_];
-  auto frame = Frame::createFrame();
+  auto frame = Frame::CreateFrame();
   // todo: why has to create? why auto? return Frame::Ptr is wrong
-  frame->image_ = cv::imread(file_name);
-  cv::imshow("frame", frame->image_);
-  cv::waitKey(0);
+  cv::Mat img = cv::imread(file_name);
+  frame->image_ = img;
+  std::cout << frame << std::endl;
   return frame;
 }
 

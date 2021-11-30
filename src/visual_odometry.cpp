@@ -36,8 +36,12 @@ bool VisualOdometry::Step() {
   Frame::Ptr frame = dataset_->NextFrame();
   if (frame = nullptr) {
     std::cerr << "frame is null!" << std::endl;
-  }
-  cv::imshow("frame", frame->image_);
+  } else
+    std::cerr << "frame:" << frame << std::endl;
+
+  if (frame->image_.empty()) std::cerr << "frame image is null!" << std::endl;
+  cv::Mat img = frame->image_.clone();
+  cv::imshow("frame", img);
   cv::waitKey(0);
   bool success = tracker_->AddFrame(frame);
   return success;

@@ -6,6 +6,7 @@
  * @Description: In User Settings Edit
  * @FilePath: /typing_slam/include/frame.h
  */
+#pragma once
 #ifndef TYPINGSLAM_FRAME_H
 #define TYPINGSLAM_FRAME_H
 
@@ -13,8 +14,9 @@
 #include "common_include.h"
 namespace typingslam {
 class Feature;
-class Frame {
+struct Frame {
  public:
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
   typedef std::shared_ptr<Frame> Ptr;
   unsigned long id_;  // id of this frame
   double time_stamp_;
@@ -30,23 +32,23 @@ class Frame {
   cv::Mat t_relative_;
 
  public:  // data members
-  Frame();
+  Frame() {}
   Frame(long id, double time_stamp = 0,
         Sophus::SE3<double> T_c_w = Sophus::SE3<double>(),
         Camera::Ptr camera = nullptr, Mat image = Mat());
-  ~Frame();
+  //   ~Frame(){};
 
   // factory function
-  static Frame::Ptr createFrame();
+  static std::shared_ptr<Frame> CreateFrame();
 
-  // find the depth in depth map
-  double findDepth(const cv::KeyPoint& kp);
+  //   // find the depth in depth map
+  //   double FindDepth(const cv::KeyPoint& kp);
 
-  // get camera center
-  Vector3d getCamCenter() const;
+  //   // get camera center
+  //   Vector3d GetCamCenter() const;
 
-  // check if a point is in this frame
-  bool isInFrame(const Vector3d& pt_world);
+  //   // check if a point is in this frame
+  //   bool IsInFrame(const Vector3d& pt_world);
 };
 
 }  // namespace typingslam
