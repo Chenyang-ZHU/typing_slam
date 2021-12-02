@@ -15,7 +15,7 @@ void GetOneFrame() {
 }
 
 int main(int argc, char *argv[]) {
-  GetOneFrame();
+  // GetOneFrame();
   std::cout << "hello slam" << std::endl;
   std::string config_path = argv[1];
   std::cout << config_path << std::endl;

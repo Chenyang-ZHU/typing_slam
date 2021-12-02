@@ -13,8 +13,7 @@ class Tracker {
  public:
   typedef std::shared_ptr<Tracker> Ptr;
   Tracker();
-  ~Tracker();
-  bool AddFrame(Frame::Ptr frame);
+  bool AddFrame(typingslam::Frame::Ptr frame);
 
   // where to put initialized 3d map points, which need to be inserted into
   // map_;
@@ -31,10 +30,10 @@ class Tracker {
   void Insertkeyframe();
 
  private:
-  Map::Ptr map_;
-  Visualizer::Ptr visualizer_;
+  Map::Ptr map_ = nullptr;
+  Visualizer::Ptr visualizer_ = nullptr;
 
-  Camera::Ptr camera_;  // Pinhole RGB-D camera model
+  Camera::Ptr camera_ = nullptr;  // Pinhole RGB-D camera model
   Frame::Ptr ref_frame_ = nullptr;
   Frame::Ptr cur_frame_ = nullptr;
   Frame::Ptr ini_frame_ = nullptr;

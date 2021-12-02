@@ -22,10 +22,10 @@ class VisualOdometry {
   bool addFrame(Frame::Ptr frame);
 
  private:
-  Tracker::Ptr tracker_;
-  Visualizer::Ptr visualizer_;
-  Map::Ptr map_;
-  Dataset::Ptr dataset_;
+  Tracker::Ptr tracker_ = nullptr;
+  Visualizer::Ptr visualizer_ = nullptr;
+  Map::Ptr map_ = nullptr;
+  Dataset::Ptr dataset_ = nullptr;
   std::string config_file_path_;
   SlamConfigs configs_;
 };

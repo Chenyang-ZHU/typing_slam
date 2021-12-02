@@ -20,6 +20,12 @@ bool VisualOdometry::Init() {
   configs_ = slam_config.configs_;
   dataset_ = Dataset::Ptr(new Dataset(configs_.dataset_dir));
   dataset_->Init();
+
+  // Initialize
+  tracker_ = Tracker::Ptr(new Tracker);
+  visualizer_ = Visualizer::Ptr(new Visualizer);
+  map_ = Map::Ptr(new Map);
+
   return true;
 }
 
@@ -35,16 +41,10 @@ void VisualOdometry::Run() {
 
 bool VisualOdometry::Step() {
   Frame::Ptr frame = dataset_->NextFrame();
-  if (frame == nullptr) {
-    std::cerr << "frame is null!" << std::endl;
-  } else
-    std::cerr << "frame:" << frame << std::endl;
-
+  if (frame == nullptr) std::cerr << "frame is null!" << std::endl;
   if (frame->image_.empty()) std::cerr << "frame image is null!" << std::endl;
-  // cv::Mat img = frame->image_.clone();
-  cv::imshow("frame", frame->image_);
-  cv::waitKey(0);
-  // bool success = tracker_->AddFrame(frame);
-  return true;
+  std::cout << "Step frame: " << frame << std::endl;
+  bool success = tracker_->AddFrame(frame);
+  return success;
 }
 }  // namespace typingslam

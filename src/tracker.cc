@@ -5,10 +5,11 @@ Tracker::Tracker() : state_(INITIALIZING) {
   orb_ = cv::ORB::create(num_of_features_, scale_factor_, level_pyramid_);
 }
 
-bool Tracker::AddFrame(Frame::Ptr frame) {
-  cur_frame_ = frame;
+bool Tracker::AddFrame(typingslam::Frame::Ptr frame) {
+  std::cout << "AddFrame: " << frame << std::endl;
   cv::imshow("frame", frame->image_);
   cv::waitKey(0);
+  cur_frame_ = frame;
 
   switch (state_) {
     case INITIALIZING: {
