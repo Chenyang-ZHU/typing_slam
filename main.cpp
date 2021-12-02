@@ -22,5 +22,5 @@ int main(int argc, char *argv[]) {
   typingslam::VisualOdometry::Ptr vo(
       new typingslam::VisualOdometry(config_path));
   bool initial = vo->Init();
-  bool step = vo->Step();
+  vo->Run();
 }

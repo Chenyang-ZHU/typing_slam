@@ -16,7 +16,7 @@ class Dataset {
   typedef std::shared_ptr<Dataset> Ptr;
   Dataset(const std::string dataset_path);
   void Init();
-  Frame::Ptr NextFrame();
+  std::shared_ptr<Frame> NextFrame();
 
  private:
   void GetFileNames(const std::string &path,

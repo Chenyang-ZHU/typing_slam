@@ -9,12 +9,12 @@ void Dataset::Init() {
   GetFileNames(image_path_, file_names_);
 }
 
-Frame::Ptr Dataset::NextFrame() {
+std::shared_ptr<Frame> Dataset::NextFrame() {
   std::string file_name = image_path_ + "/" + file_names_[image_index_];
   auto frame = Frame::CreateFrame();
   // todo: why has to create? why auto? return Frame::Ptr is wrong
-  // cv::Mat img = cv::imread(file_name);
-  // frame->image_ = img;
+  cv::Mat img = cv::imread(file_name);
+  frame->image_ = img;
   std::cout << frame << std::endl;
   return frame;
 }
