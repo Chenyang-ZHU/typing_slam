@@ -6,11 +6,7 @@ Tracker::Tracker() : state_(INITIALIZING) {
 }
 
 bool Tracker::AddFrame(typingslam::Frame::Ptr frame) {
-  std::cout << "AddFrame: " << frame << std::endl;
-  cv::imshow("frame", frame->image_);
-  cv::waitKey(0);
   cur_frame_ = frame;
-
   switch (state_) {
     case INITIALIZING: {
       Initialize();
@@ -48,6 +44,7 @@ void Tracker::Initialize() {
       map_->insertMapPoint(map_point);
     }
     map_->insertKeyFrame(ini_frame_);
+    state_ = GOOD;
   }
 }
 

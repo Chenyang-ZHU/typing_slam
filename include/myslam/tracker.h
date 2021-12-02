@@ -23,6 +23,9 @@ class Tracker {
   void Relocalize();
   inline TrackStatus GetTrackState() { return state_; }
 
+  void SetMap(Map::Ptr map) { map_ = map; }
+  void SetVisualizer(Visualizer::Ptr visualizer) { visualizer_ = visualizer; }
+
  private:
   void ExtractFeatures();
   void MatchFeatures();

@@ -13,9 +13,10 @@ std::shared_ptr<Frame> Dataset::NextFrame() {
   std::string file_name = image_path_ + "/" + file_names_[image_index_];
   auto frame = Frame::CreateFrame();
   // todo: why has to create? why auto? return Frame::Ptr is wrong
+  std::cout << file_names_[image_index_] << std::endl;
   cv::Mat img = cv::imread(file_name);
   frame->image_ = img;
-  std::cout << frame << std::endl;
+  image_index_++;
   return frame;
 }
 

@@ -26,6 +26,9 @@ bool VisualOdometry::Init() {
   visualizer_ = Visualizer::Ptr(new Visualizer);
   map_ = Map::Ptr(new Map);
 
+  tracker_->SetMap(map_);
+  tracker_->SetVisualizer(visualizer_);
+
   return true;
 }
 
@@ -43,7 +46,6 @@ bool VisualOdometry::Step() {
   Frame::Ptr frame = dataset_->NextFrame();
   if (frame == nullptr) std::cerr << "frame is null!" << std::endl;
   if (frame->image_.empty()) std::cerr << "frame image is null!" << std::endl;
-  std::cout << "Step frame: " << frame << std::endl;
   bool success = tracker_->AddFrame(frame);
   return success;
 }
