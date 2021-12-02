@@ -13,7 +13,7 @@
 #include "camera.h"
 #include "common_include.h"
 namespace typingslam {
-class Feature;
+struct Feature;
 struct Frame {
  public:
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
@@ -33,9 +33,8 @@ struct Frame {
 
  public:  // data members
   Frame() {}
-  Frame(long id, double time_stamp = 0,
-        Sophus::SE3<double> T_c_w = Sophus::SE3<double>(),
-        Camera::Ptr camera = nullptr, Mat image = Mat());
+  Frame(long id, double time_stamp, Sophus::SE3<double> T_c_w,
+        Camera::Ptr camera, Mat image);
   //   ~Frame(){};
 
   // factory function

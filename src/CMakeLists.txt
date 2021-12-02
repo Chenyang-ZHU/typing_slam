@@ -1,3 +1,4 @@
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 add_library( typingslam SHARED
     frame.cpp
     mappoint.cpp

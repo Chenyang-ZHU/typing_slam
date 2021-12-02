@@ -4,7 +4,7 @@
 #include "frame.h"
 #include "mappoint.h"
 namespace typingslam {
-class Feature {
+struct Feature {
  public:
   Feature() {}
   Feature(std::shared_ptr<Frame> frame, const cv::KeyPoint &kp)

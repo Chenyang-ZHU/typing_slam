@@ -12,9 +12,9 @@
 namespace typingslam {
 class Dataset {
  public:
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
   typedef std::shared_ptr<Dataset> Ptr;
   Dataset(const std::string dataset_path);
-  ~Dataset();
   void Init();
   Frame::Ptr NextFrame();
 

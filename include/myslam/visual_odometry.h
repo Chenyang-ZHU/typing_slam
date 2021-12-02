@@ -10,6 +10,8 @@
 namespace typingslam {
 class VisualOdometry {
  public:
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
+  typedef std::shared_ptr<VisualOdometry> Ptr;
   VisualOdometry(const std::string &config_file_path);
   ~VisualOdometry();
 

@@ -12,7 +12,7 @@ Frame::Frame(long id, double time_stamp, Sophus::SE3<double> T_c_w,
 
 Frame::Ptr Frame::CreateFrame() {
   static long factory_id = 0;
-  std::shared_ptr<Frame> frame(new Frame);
+  Frame::Ptr frame(new Frame);
   frame->id_ = factory_id++;
   return frame;
 }
