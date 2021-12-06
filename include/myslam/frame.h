@@ -37,6 +37,8 @@ struct Frame {
         Camera::Ptr camera, Mat image);
   //   ~Frame(){};
 
+  Sophus::SE3d Pose() { return T_c_w_; }
+
   // factory function
   static std::shared_ptr<Frame> CreateFrame();
 

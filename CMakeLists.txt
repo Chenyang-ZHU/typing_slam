@@ -73,4 +73,5 @@ add_subdirectory(src)
 add_executable(mono_slam main.cpp)
 target_link_libraries(mono_slam 
  typingslam
+ ${THIRD_PARTY_LIBS}
 )

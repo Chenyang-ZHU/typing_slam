@@ -10,13 +10,21 @@ namespace typingslam {
 class Map {
  public:
   typedef std::shared_ptr<Map> Ptr;
-  std::unordered_map<unsigned long, MapPoint::Ptr> map_points_;
-  std::unordered_map<unsigned long, Frame::Ptr> keyframes_;  // all keyframes
+  typedef std::unordered_map<unsigned long, MapPoint::Ptr> MapPoints;
+  typedef std::unordered_map<unsigned long, Frame::Ptr> KeyFrames;
+
+  MapPoints map_points_;
+  KeyFrames keyframes_;  // all keyframes
+  MapPoints active_map_points_;
+  KeyFrames active_keyframes_;
 
   Map() {}
 
   void insertKeyFrame(Frame::Ptr frame);
   void insertMapPoint(MapPoint::Ptr map_point);
+
+  MapPoints GetActiveMapPoints() { return active_map_points_; }
+  KeyFrames GetActiveKeyFrames() { return active_keyframes_; }
 };
 
 }  // namespace typingslam

@@ -30,12 +30,19 @@ using Sophus::SE3;
 using cv::Mat;
 
 // std
+#include <glog/logging.h>
+
+#include <atomic>
+#include <condition_variable>
 #include <iostream>
 #include <list>
 #include <map>
 #include <memory>
+#include <mutex>
 #include <set>
 #include <string>
+#include <thread>
+#include <typeinfo>
 #include <unordered_map>
 #include <vector>
 
